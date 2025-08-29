@@ -1,5 +1,5 @@
 # 염한결 과제 제출합니다!
-# 시간과 능력 부족으로 인해 회원 가입 기능까지만 구현하였습니다..
+# 시간과 능력 부족으로 인해 로그인 기능까지만 구현하였습니다..
 
 # (1) 초기 사용자 목록 생성
 
@@ -17,7 +17,7 @@ print(users)
 # (2) 회원 가입
 
 while True:
-    status = int(input("회원 가입은 1번, 로그인은 2번, 정보 수정은 3번, 회원 탈퇴는 4번, 종료하려면 5번을 눌러주세요."))
+    status = int(input("회원 가입은 1번, 로그인은 2번을 눌러주세요."))
     match status:
         case 1:     #회원 가입 선택 시
             while True:     #출생연도
@@ -76,3 +76,22 @@ while True:
                 "role": role
             }
             print(users)
+
+        case 2:     #로그인 기능
+            while True:     # 아이디 확인 절차
+                login_id = input("아이디를 입력하세요.")
+                if login_id in users:
+                    while True:     # 비밀번호 확인 절차
+                        login_pd = int(input("비밀번호를 입력하세요."))
+                        if login_pd == users[login_id]["password"]:
+                            print("로그인되었습니다.")
+                            break
+                        else:
+                            print("잘못되었습니다.")
+                    break
+                else:
+                    print("잘못되었습니다.")
+
+            #여기서부터 로그인 성공 시 추가 기능 넣어야 함.
+        case _:
+            break
